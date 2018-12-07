@@ -3,8 +3,11 @@ import React, { Component } from 'react';
 import TopBar from './TopBar/TopBar';
 import Challenges from './Challenges/Challenges'
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 class App extends Component {
+
+  
 
   state = {
     hour: null,
@@ -19,6 +22,7 @@ class App extends Component {
     })
 }
   render() {
+    console.log(this.props);
     return (
       <div className="container-fluid">
         <TopBar />
@@ -28,4 +32,10 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStoreToProps(state){
+  return{
+    hour: state.hour
+  }
+}
+
+export default connect(mapStoreToProps)(App);
