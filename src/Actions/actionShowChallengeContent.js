@@ -1,6 +1,7 @@
 export const actionShowChallengeContent  = (show ) => {
     return {
         type: 'ShowChallengeContent',
-        show:show
+        show:show,
+        content:null,
     }
 };

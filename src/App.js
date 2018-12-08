@@ -6,7 +6,9 @@ import ChallengeContent from './Challenges/ChallengeContent';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import {updateData} from './Actions'
-import {actionShowChallengeContent} from './Actions/actionShowChallengeContent'
+import {actionShowChallengeContent} from './Actions/actionShowChallengeContent';
+import {GetContents} from './Actions/GetContents';
+
 import { bindActionCreators } from 'redux';
 
 class App extends Component {
@@ -20,7 +22,7 @@ class App extends Component {
     })
 }
   render() {
-  
+    
     return (
       <div className="container-fluid">
         <div className = 'row'>
@@ -28,11 +30,12 @@ class App extends Component {
             <TopBar />
             <Challenges 
               hour={this.props.state.hour}
-              actionShowChallengeContent ={this.props.actionShowChallengeContent}
+              getContents ={this.props.getContents}
               />
             <ChallengeContent 
               showChallengeContent={this.props.state.showChallengeContent }
               actionShowChallengeContent ={this.props.actionShowChallengeContent}
+              contents = {this.props.state.contents}
             />
           </div>
         </div>
@@ -50,7 +53,8 @@ function mapStoreToProps(state){
 function matchDispatchToProps(dispatch){
   return bindActionCreators(
     {updateData:updateData,
-    actionShowChallengeContent:actionShowChallengeContent},
+    actionShowChallengeContent:actionShowChallengeContent,
+    getContents:GetContents},
     dispatch
   )
 }

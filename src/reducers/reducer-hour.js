@@ -6,9 +6,17 @@ export default function(state = null,action){
                 hour:action.hour
             }
         
-        case "ShowChallengeContent":
+            case "ShowChallengeContent":
             return {
                 ...state,
+                showChallengeContent:action.show,
+                contents:action.content,
+            };
+        
+            case "GetContents":
+            return {
+                ...state,
+                contents:action.content,
                 showChallengeContent:action.show
             };
     }
