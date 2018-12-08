@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import Hour from './reducer-hour';
+import state from './reducer-hour';
 
 const allReducers = combineReducers({
-    hour : Hour
+    state : state
 });
 export default allReducers;

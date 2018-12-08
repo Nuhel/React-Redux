@@ -5,6 +5,7 @@ import './style.css';
 
 class Challenges extends Component{
     render(){
+        console.log(this.props)
         return this.props.hour ?
         (
             <div className='challengesbar-wrapper'>
@@ -14,7 +15,13 @@ class Challenges extends Component{
                         {
                             this.props.hour.map((challenge, index) => (
 
-                                <li key={challenge.id} className="listRow" data-event="content-opener" data-target={"#"+challenge.id}>
+                                <li 
+                                key={challenge.id} 
+                                className="listRow" 
+                                data-event="content-opener" 
+                                data-target={"#"+challenge.id}
+                                onClick={()=>{this.props.actionShowChallengeContent(true)}}
+                                >
                                 <span className="indicator">
                                     <span className="level_number">
                                         <i className="fa fa-check" aria-hidden="true"></i>

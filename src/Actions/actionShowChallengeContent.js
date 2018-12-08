@@ -1,4 +1,4 @@
-export const actionShowChallengeContent  = (show = false) => {
+export const actionShowChallengeContent  = (show ) => {
     return {
         type: 'ShowChallengeContent',
         show:show

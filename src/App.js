@@ -17,18 +17,23 @@ class App extends Component {
     axios.get(`https://api.myjson.com/bins/jkcfq`)
       .then(res => {
         this.props.updateData(res.data[0].hour);
-        //this.props.actionShowChallengeContent(true);
     })
 }
   render() {
-    console.log(this.props);
+  
     return (
       <div className="container-fluid">
         <div className = 'row'>
           <div className = 'col s12 m4 nuhel'>
             <TopBar />
-            <Challenges hour={this.props.hour}/>
-            <ChallengeContent showChallengeContent={this.props.showChallengeContent} actionShowChallengeContent={actionShowChallengeContent}/>
+            <Challenges 
+              hour={this.props.state.hour}
+              actionShowChallengeContent ={this.props.actionShowChallengeContent}
+              />
+            <ChallengeContent 
+              showChallengeContent={this.props.state.showChallengeContent }
+              actionShowChallengeContent ={this.props.actionShowChallengeContent}
+            />
           </div>
         </div>
       </div>
@@ -38,8 +43,7 @@ class App extends Component {
 
 function mapStoreToProps(state){
   return{
-    hour: state.hour,
-    showChallengeContent: state.show,
+    state: state.state
   }
 }
 
