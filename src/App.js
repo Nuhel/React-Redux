@@ -4,29 +4,26 @@ import TopBar from './TopBar/TopBar';
 import Challenges from './Challenges/Challenges'
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {updateData} from './Actions'
+import { bindActionCreators } from 'redux';
 
 class App extends Component {
 
   
 
-  state = {
-    hour: null,
-  }
-
   componentDidMount() {
     axios.get(`https://api.myjson.com/bins/jkcfq`)
       .then(res => {
-        this.setState({
-            hour: res.data[0].hour
-        })
+        this.props.updateData(res.data[0].hour);
     })
 }
   render() {
+
     console.log(this.props);
     return (
       <div className="container-fluid">
         <TopBar />
-        <Challenges hour={this.state.hour}/>
+        <Challenges hour={this.props.hour}/>
       </div>
     );
   }
@@ -38,4 +35,11 @@ function mapStoreToProps(state){
   }
 }
 
-export default connect(mapStoreToProps)(App);
+function matchDispatchToProps(dispatch){
+  return bindActionCreators(
+    {updateData:updateData},
+    dispatch
+  )
+}
+
+export default connect(mapStoreToProps,matchDispatchToProps)(App);

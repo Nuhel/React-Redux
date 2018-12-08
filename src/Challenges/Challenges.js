@@ -4,8 +4,6 @@ import './style.css';
 
 
 class Challenges extends Component{
-
-
     render(){
         return this.props.hour ?
         (

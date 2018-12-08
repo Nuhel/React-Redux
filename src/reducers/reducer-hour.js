@@ -1,12 +1,7 @@
-export default function(){
-    return [
-        {
-            id: '1',
-            name: 'nuhel'
-        },
-        {
-            id: '2',
-            name: 'koly'
-        }
-    ]
+export default function(hour = null,action){
+    switch (action.type){
+        case "updateData":
+            return action.hour;
+    }
+    return hour;
 }
