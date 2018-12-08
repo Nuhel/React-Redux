@@ -4,13 +4,11 @@ import './topbar.css'
 const TopBar = () =>{
     return (
         <div className='topbar-wrapper'>
-            <div className='row'>
-                <div className='col s12 m4'>
-                    <div className="card-panel teal lighten-2">
-                        <p>Programing Hero</p>
-                    </div>
-                </div>
+            
+            <div className="card-panel teal lighten-2">
+                <p>Programing Hero</p>
             </div>
+                
         </div>
     )
 }

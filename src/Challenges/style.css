@@ -79,3 +79,20 @@
 .content img{
 	max-height: 200px;
 }
+
+.ChallengeContent{
+	height:100%;
+	top:0;
+	position:absolute;
+	width:100%;
+	background:red;
+	z-index: 2;
+}
+
+.ChallengeContent.close{
+	left:-100%;
+}
+
+.nuhel{
+	position: absolute;
+}

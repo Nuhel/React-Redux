@@ -8,8 +8,7 @@ class Challenges extends Component{
         return this.props.hour ?
         (
             <div className='challengesbar-wrapper'>
-                <div className='row'>
-                    <div className='col s12 m4'>
+               
                         <div className="listWrapper">
                         <ul className="listUl">
                         {
@@ -39,8 +38,7 @@ class Challenges extends Component{
                         }
                         </ul>
                         </div>
-                    </div>
-                </div>
+                    
             </div>
         )
         :
