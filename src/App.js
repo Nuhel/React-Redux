@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import {updateData} from './Actions'
 import {actionShowChallengeContent} from './Actions/actionShowChallengeContent';
 import {GetContents} from './Actions/GetContents';
-
+import {SetViewIndex} from './Actions/SetViewIndex'
 import { bindActionCreators } from 'redux';
 
 class App extends Component {
@@ -22,6 +22,7 @@ class App extends Component {
     })
 }
   render() {
+
     
     return (
       <div className="container-fluid">
@@ -36,6 +37,9 @@ class App extends Component {
               showChallengeContent={this.props.state.showChallengeContent }
               actionShowChallengeContent ={this.props.actionShowChallengeContent}
               contents = {this.props.state.contents}
+              SetViewIndex = {this.props.SetViewIndex}
+              showIndex ={this.props.state.showIndex}
+              SetViewIndex={this.props.SetViewIndex}
             />
           </div>
         </div>
@@ -54,7 +58,8 @@ function matchDispatchToProps(dispatch){
   return bindActionCreators(
     {updateData:updateData,
     actionShowChallengeContent:actionShowChallengeContent,
-    getContents:GetContents},
+    getContents:GetContents,
+    SetViewIndex:SetViewIndex},
     dispatch
   )
 }
